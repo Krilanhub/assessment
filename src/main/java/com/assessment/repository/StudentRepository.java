@@ -1,5 +1,9 @@
 package com.assessment.repository;
 
-public interface StudentRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.assessment.entities.Student;
+
+public interface StudentRepository extends CrudRepository<Student, Integer> {
 
 }

@@ -31,7 +31,7 @@ public class BookService {
 	}
 
 	public void deleteBook(int bookid, Book book) {
-		bookRepository.delete(bookid);
+		bookRepository.delete(book);
 	}
 
 }

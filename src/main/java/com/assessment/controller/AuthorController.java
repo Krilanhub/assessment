@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assessment.entities.Book;
@@ -43,7 +42,7 @@ public class AuthorController {
 
 	// delete book
 	@DeleteMapping("/author/deletebook")
-	public void deletebook(@PathVariable int bookid) {
+	public void deletebook(@PathVariable int bookid, Book book) {
 		bookService.deleteBook(bookid, book);
 	}
 

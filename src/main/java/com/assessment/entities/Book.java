@@ -42,4 +42,9 @@ public class Book {
 		this.description = description;
 	}
 
+	@Override
+	public String toString() {
+		return "Book [bookid=" + bookid + ", name=" + name + ", description=" + description + "]";
+	}
+
 }
