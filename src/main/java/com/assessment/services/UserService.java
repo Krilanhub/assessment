@@ -26,7 +26,7 @@ public class UserService {
 		userRepository.save(user);
 	}
 
-	public void edituser(int userid, User user) {
+	public void updateuser(int userid, User user) {
 		userRepository.save(user);
 	}
 

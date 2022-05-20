@@ -11,6 +11,7 @@ public class User {
 	private int userid;
 
 	private String username;
+	private String password;
 	private String email;
 	private String role;
 	private boolean enabled;
@@ -29,6 +30,14 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getEmail() {
@@ -57,8 +66,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", username=" + username + ", email=" + email + ", role=" + role
-				+ ", enabled=" + enabled + "]";
+		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", role=" + role + ", enabled=" + enabled + "]";
 	}
 
 }

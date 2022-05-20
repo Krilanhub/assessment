@@ -12,14 +12,14 @@ import com.assessment.services.BookService;
 
 @RestController
 public class StudentController {
-	
+
 	@Autowired
 	private BookService bookService;
-	
-	// view all books
-		@GetMapping("/student/viewbooks")
-		public List<Book> getBooks(@PathVariable Book book) {
-			return bookService.getBooks();
-		}
+
+	// student view all books
+	@GetMapping("/student/viewbooks")
+	public List<Book> getBooks(@PathVariable Book book) {
+		return bookService.getBooks();
+	}
 
 }

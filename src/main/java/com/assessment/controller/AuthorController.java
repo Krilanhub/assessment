@@ -22,7 +22,7 @@ public class AuthorController {
 
 	// view all books
 	@GetMapping("/author/viewbook")
-	public List<Book> getBooks(@PathVariable Book book) {
+	public List<Book> getBooks(@RequestBody Book book) {
 		return bookService.getBooks();
 	}
 
@@ -42,7 +42,7 @@ public class AuthorController {
 
 	// delete book
 	@DeleteMapping("/author/deletebook")
-	public void deletebook(@PathVariable int bookid, Book book) {
+	public void deletebook(@RequestBody Book book, @PathVariable int bookid) {
 		bookService.deleteBook(bookid, book);
 	}
 

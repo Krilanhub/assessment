@@ -1,46 +1,47 @@
+
 package com.assessment.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.assessment.entities.Book;
 import com.assessment.entities.User;
 import com.assessment.services.UserService;
 
 @RestController
 public class UserController {
 
+	@Autowired
+	private UserService userService;
+
 	@GetMapping("/admin/viewusers")
-	public List<User> getUsers(@PathVariable User user) {
-		return UserService.getUsers();
-		// returns users from repository
+	public List<User> getUsers(@RequestBody User user) {
+		return userService.getUsers();
+
 	}
 
 	@PostMapping("/admin/createuser")
-	public boolean createUser(User user) {
-		// return true if save success return false if fail
-	}
-	// same for edit and delete
-
-	@GetMapping("/author/viewbook")
-	public List<Book> viewBook() {
-		// returns books from repository
+	public void createUser(@RequestBody User user) {
+		userService.createuser(user);
 	}
 
-	@PostMapping("/author/createbook")
-	public boolean createUser(UserController user) {
-		// return true if book save success return false if fail
+	// update user
+	@PutMapping("/admin/updateuser")
+	public void updateuser(@RequestBody User user, @PathVariable int userid) {
+		userService.updateuser(userid, user);
 	}
 
-	@GetMapping("/student/viewbooks")
-	public List<Book> viewBooks() {
-		// returns books from repository
-
+	// delete user
+	@DeleteMapping("/admin/deleteuser")
+	public void deleteuser(@RequestBody User user, @PathVariable int userid) {
+		userService.deleteuser(userid, user);
 	}
 
 }
