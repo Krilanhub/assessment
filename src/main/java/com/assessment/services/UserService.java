@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.assessment.entities.User;
@@ -23,14 +24,18 @@ public class UserService {
 	}
 
 	public void createuser(User user) {
+		BCryptPasswordEncoder bv = new BCryptPasswordEncoder();
+		user.setPassword(bv.encode(user.getPassword()));
 		userRepository.save(user);
 	}
 
-	public void updateuser(int userid, User user) {
+	public void updateuser(User user) {
+		BCryptPasswordEncoder bv = new BCryptPasswordEncoder();
+		user.setPassword(bv.encode(user.getPassword()));
 		userRepository.save(user);
 	}
 
-	public void deleteuser(int userid, User user) {
+	public void deleteuser(User user) {
 		userRepository.delete(user);
 	}
 

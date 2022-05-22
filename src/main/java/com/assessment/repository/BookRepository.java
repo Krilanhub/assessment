@@ -6,9 +6,4 @@ import com.assessment.entities.Book;
 
 public interface BookRepository extends CrudRepository<Book, Integer> {
 
-	/*
-	 * public List<Book> findByBookId(int bookId);
-	 * 
-	 * public List<Book> delete(int bookid);
-	 */
 }

@@ -26,11 +26,11 @@ public class BookService {
 		bookRepository.save(book);
 	}
 
-	public void updateBook(int bookid, Book book) {
+	public void updateBook( Book book) {
 		bookRepository.save(book);
 	}
 
-	public void deleteBook(int bookid, Book book) {
+	public void deleteBook( Book book) {
 		bookRepository.delete(book);
 	}
 

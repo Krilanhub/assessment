@@ -11,13 +11,6 @@ public class Book {
 	private String name;
 	private String description;
 
-	public Book(int bookid, String name, String description) {
-		super();
-		this.bookid = bookid;
-		this.name = name;
-		this.description = description;
-	}
-
 	public int getBookid() {
 		return bookid;
 	}

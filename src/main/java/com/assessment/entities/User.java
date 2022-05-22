@@ -1,20 +1,19 @@
 package com.assessment.entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userid;
 
 	private String username;
 	private String password;
 	private String email;
 	private String role;
-	private boolean enabled;
+	
 
 	public int getUserid() {
 		return userid;
@@ -56,18 +55,12 @@ public class User {
 		this.role = role;
 	}
 
-	public boolean isEnabled() {
-		return enabled;
-	}
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
 
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", email=" + email
-				+ ", role=" + role + ", enabled=" + enabled + "]";
+				+ ", role=" + role + "]";
 	}
 
 }

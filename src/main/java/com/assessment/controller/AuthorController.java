@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,8 +20,8 @@ public class AuthorController {
 	private BookService bookService;
 
 	// view all books
-	@GetMapping("/author/viewbook")
-	public List<Book> getBooks(@RequestBody Book book) {
+	@GetMapping("/author/viewbooks")
+	public List<Book> getBooks() {
 		return bookService.getBooks();
 	}
 
@@ -35,15 +34,14 @@ public class AuthorController {
 
 	// update book
 	@PutMapping("/author/updatebook")
-	public void updatebook(@RequestBody Book book, @PathVariable int bookid, @PathVariable String name,
-			@PathVariable String description) {
-		bookService.updateBook(bookid, book);
+	public void updatebook(@RequestBody Book book) {
+		bookService.updateBook(book);
 	}
 
 	// delete book
 	@DeleteMapping("/author/deletebook")
-	public void deletebook(@RequestBody Book book, @PathVariable int bookid) {
-		bookService.deleteBook(bookid, book);
+	public void deletebook(@RequestBody Book book) {
+		bookService.deleteBook(book);
 	}
 
 }

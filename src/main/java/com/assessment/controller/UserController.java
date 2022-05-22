@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,12 +20,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	// view all users
 	@GetMapping("/admin/viewusers")
-	public List<User> getUsers(@RequestBody User user) {
+	public List<User> getUsers() {
 		return userService.getUsers();
 
 	}
 
+	// create user
 	@PostMapping("/admin/createuser")
 	public void createUser(@RequestBody User user) {
 		userService.createuser(user);
@@ -34,14 +35,14 @@ public class UserController {
 
 	// update user
 	@PutMapping("/admin/updateuser")
-	public void updateuser(@RequestBody User user, @PathVariable int userid) {
-		userService.updateuser(userid, user);
+	public void updateuser(@RequestBody User user) {
+		userService.updateuser(user);
 	}
 
 	// delete user
 	@DeleteMapping("/admin/deleteuser")
-	public void deleteuser(@RequestBody User user, @PathVariable int userid) {
-		userService.deleteuser(userid, user);
+	public void deleteuser(@RequestBody User user) {
+		userService.deleteuser(user);
 	}
 
 }
